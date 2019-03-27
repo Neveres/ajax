@@ -4,7 +4,7 @@
  * @param {object} setting - Setting for ajax
  * @param {stirng} [setting.method=GET] - ajax method
  */
-function ajax(endPoint, setting) {
+function ajax (endPoint, setting) {
     if (typeof endPoint !== 'string') return;
 
     setting = setting = {};
