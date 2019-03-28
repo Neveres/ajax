@@ -39,22 +39,11 @@ module.exports = function (config) {
             // source files, that you wanna generate coverage for
             // do not include tests or libraries
             // (these files will be instrumented by Istanbul)
-            './index.js': ['babel', 'coverage'],
-            'test/*.js': ['babel']
+            './index.js': ['webpack', 'coverage'],
+            'test/*.js': ['webpack']
         },
 
-        babelPreprocessor: {
-            options: {
-                presets: ['@babel/preset-env'],
-                sourceMap: 'inline'
-            },
-            filename: function (file) {
-                return file.originalPath.replace(/\.js$/, '.es5.js');
-            },
-            sourceFileName: function (file) {
-                return file.originalPath;
-            }
-        },
+        webpack: require('./webpack.config'),
 
         // optionally, for detectBrowsers package settings
         detectBrowsers: {
