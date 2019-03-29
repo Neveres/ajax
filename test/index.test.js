@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import ajax from './../index';
+import ajax from '../src/index.js';
 
 describe('ajax', () => {
     it('should be a function', () => {
