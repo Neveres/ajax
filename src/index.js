@@ -1,31 +1,66 @@
 /**
  * Send http request to specific end point
- * @param {string} endPoint - The end point to be requested
- * @param {object} setting - Setting for ajax
- * @param {stirng} [setting.method=GET] - ajax method
+ * @param {string} url - The end point url to be requested
+ * @param {object} [setting={}] - Setting for ajax
+ * @param {stirng} [setting.method='GET'] - ajax method
  */
-function ajax (endPoint, setting) {
-    if (typeof endPoint !== 'string') return;
+function ajax (url, setting = {}) {
+    if (typeof url !== 'string' || url.length <= 0) return;
 
-    setting = setting = {};
     const method = {
         POST: 'POST',
-        GET: 'GET'
+        GET: 'GET',
+        PUT: 'PUT',
+        DELETE: 'DELETE'
     };
     const settingMethod = setting.method = setting.method || method.GET;
+    const fetch = window.fetch;
+    const XMLHttpRequest = window.XMLHttpRequest;
+    const GET = method.GET;
+    const POST = method.POST;
 
-    switch (settingMethod) {
-    case method.GET:
-        const firstScriptNode = document.getElementsByTagName('script')[0];
+    if (fetch) {
+        switch (settingMethod) {
+        case GET:
+            fetch(url);
+            break;
+        case POST:
+            const option = {
+                method: settingMethod,
+                mode: ''
+            };
+
+            const crossDomain = setting.crossDomain;
+            if (typeof crossDomain === 'boolean') {
+                option.mode = crossDomain ? 'cors' : 'no-cors';
+            } else {
+                option.mode = url.indexOf(window.location.hostname) < 0 ?
+                    'cors' : 'no-cors';
+            }
+
+            fetch(url, option);
+            break;
+        }
+    } else if (XMLHttpRequest) {
+        const httpReqeust = new XMLHttpRequest();
+
+        switch (settingMethod) {
+        case GET:
+            httpReqeust.open(settingMethod, url);
+            break;
+        case POST:
+            break;
+        }
+
+        httpReqeust.send();
+    } else {
+        const firstScriptTag = document.getElementsByTagName('script')[0];
         const imgTag = document.createElement('img');
 
         imgTag.style.display = 'none';
-        imgTag.src = endPoint;
+        imgTag.src = url;
 
-        firstScriptNode.parentNode.insertBefore(imgTag, firstScriptNode);
-        break;
-    case method.POST:
-        break;
+        firstScriptTag.parentNode.insertBefore(imgTag, firstScriptTag);
     }
 }
 
