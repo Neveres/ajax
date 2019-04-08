@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "lint": "eslint idnex.js"
+    "lint": "eslint index.js"
   },
   "pre-commit": [
     "lint",
