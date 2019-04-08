@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/Neveres/ajax.svg?branch=master)](https://travis-ci.org/Neveres/ajax)
-
-# ajax
+# ajax [![Build Status](https://travis-ci.org/Neveres/ajax.svg?branch=master)](https://travis-ci.org/Neveres/ajax)
 
 > A free and open source library for performing an asynchronous HTTP (Ajax) request.
 

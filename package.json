@@ -1,18 +1,16 @@
 {
   "name": "ajax",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist",
+  "description": "A free and open source library for performing an asynchronous HTTP (Ajax) request.",
+  "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "lint": "eslint src/*.js",
-    "start": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production"
+    "lint": "eslint idnex.js"
   },
   "pre-commit": [
     "lint",
     "test"
-  ],  
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Neveres/ajax.git"
@@ -24,13 +22,9 @@
   },
   "homepage": "https://github.com/Neveres/ajax#readme",
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "babel-loader": "^8.0.0-beta.6",
     "chai": "^4.2.0",
     "eslint": "^5.15.3",
     "eslint-config-google": "^0.12.0",
-    "html-webpack-plugin": "^3.2.0",
     "karma": "^4.0.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -43,11 +37,7 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-summary-reporter": "^1.6.0",
-    "karma-webpack": "^3.0.5",
     "mocha": "^6.0.2",
-    "pre-commit": "^1.2.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "pre-commit": "^1.2.2"
   }
 }
