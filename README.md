@@ -66,11 +66,6 @@ ajax( url [, settings ] [, handlers] )
 | username | `String` |  |  |
 | xhr | `Function` |  | `ActiveXObject` when available (IE), the `XMLHttpRequest` otherwise |
 | xhrFields | `Object` |  |  |
-
-### handlers
-
-| key | description |
-| - | - |
 | beforeSend |  |
 | complete |  |
 | dataFilter | |

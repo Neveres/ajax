@@ -48,7 +48,7 @@ module.exports = function (config) {
             enabled: true,
 
             // enable/disable phantomjs support, default is true
-            usePhantomJS: true,
+            usePhantomJS: false,
 
             // use headless mode, for browsers that support it, default is false
             preferHeadless: true
